@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>420</width>
+    <height>448</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>420</width>
+    <height>448</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>420</width>
+    <height>448</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>IAP ——寒寒</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QTextEdit{		
+	
+	background-color: rgb(130, 162, 172);
+	border:1px solid rgb(173, 216, 230);
+	color: back;
+}
+/****************************************************************/
+QScrollBar:vertical{
+	border:2px solid rgb(173, 216, 230);
+	background:lightblue;
+	width: 20px;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+QScrollBar::handle:vertical{
+	width:8px;
+	background:rgb(170, 211, 225);
+	min-height:30px;
+	margin: 1px 0px 1px 1px;
+}
+QScrollBar::add-line:vertical   
+{
+    height:20px;width:18px;
+    subcontrol-position:bottom;
+	background:rgb(173, 216, 230);
+	border: 1px solid rgb(155, 155, 155);
+	
+	image: url(:/image/arrow_down.png);
+}
+QScrollBar::sub-line:vertical   
+{
+    height:20px;width:18px;
+    subcontrol-position:top;
+	background:rgb(173, 216, 230);
+	border: 1px solid rgb(155, 155, 155);
+	
+	image: url(:/image/arrow_up.png);
+}
+/**************************QPushButton*************************/
+QPushButton{
+	background-color:lightblue;
+	border:1px solid rgb(119, 149, 158);
+	border-radius:0px;
+	font:15px bold Khmer UI
+}
+QPushButton:hover{
+	/*border:1px solid blue;*/
+	background:rgb(170, 211, 225);
+}
+QPushButton:pressed{
+	background: rgb(125, 155, 165);
+}
+/**************************组合框***********************/
+QComboBox{
+	background-color: lightblue;
+	border: 1px solid rgb(119, 149, 158);
+	border-radius: 0px;
+	padding:1px 2px 1px 2px;
+	font:15px bold Khmer UI
+}
+QComboBox:hover {
+	background:rgb(170, 211, 225);
+}
+QComboBox::dowm-arrow{
+	
+}
+QComboBox::drop-down{
+	subcontrol-origin:padding;
+	subcontrol-position: top right;
+	width:13px;
+	
+	border-left-width:2px;
+	border-left-color:rgb(119, 149, 158);
+	border-left-style:solid;
+
+	image: url(:/image/arrow_down.png);
+}
+/******************************QTabWidget************************/
+QTabWidget::pane{
+	border: 2px solid lightblue;
+}
+QTabWidget::tab-bar{
+	left: 50px;
+}
+QTabBar::tab{
+    background:lightblue;
+    border: 1px solid rgb(119, 149, 158);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    min-width: 30ex;
+    padding: 2px;	
+}
+QTabBar::tab:selected, QTabBar::tab:hover {
+	background:rgb(170, 211, 225);
+}
+
+QTabBar::tab:selected {
+    border-color: #9B9B9B;
+    border-bottom-color: lightblue; /* same as pane color */
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px; /* make non-selected tabs look smaller */
+}
+QTabBar::tab:selected {
+    /* expand/overlap to the left and right by 4px */
+    margin-left: -1px;
+    margin-right: -1px;
+}
+QTabBar::tab:first:selected {
+    margin-left: 0; /* the first selected tab has nothing to overlap with on the left */
+}
+
+QTabBar::tab:last:selected {
+    margin-right: 0; /* the last selected tab has nothing to overlap with on the right */
+}
+
+QTabBar::tab:only-one {
+    margin: 0; /* if there is only one tab, we don't want overlapping margins */
+}
+/****************************Progress Bar***************************/
+QProgressBar{
+	border:2px solid rgb(119, 149, 158);
+	text-align:center;
+}
+QProgressBar::chunk{
+	background-color:rgb(173, 216, 230);
+	width:20px;
+	margin:0.5px;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="font">
+      <font>
+       <family>Khmer UI</family>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Triangular</enum>
+     </property>
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <property name="movable">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="Load">
+      <attribute name="title">
+       <string>bin下载</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="2" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="0">
+        <widget class="QTextEdit" name="loadTextEdit">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>311</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Khmer UI</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QProgressBar" name="loadProgressBar">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="textVisible">
+          <bool>true</bool>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="textDirection">
+          <enum>QProgressBar::TopToBottom</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="binView">
+      <attribute name="title">
+       <string>bin查看</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="1" column="0">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="0">
+        <widget class="QTextEdit" name="binTextEdit">
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>11</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+           <kerning>true</kerning>
+          </font>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="Set">
+      <attribute name="title">
+       <string>设置</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="1">
+            <widget class="QGroupBox" name="binBox">
+             <property name="title">
+              <string>文件路径</string>
+             </property>
+             <widget class="QWidget" name="verticalLayoutWidget_5">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>50</y>
+                <width>351</width>
+                <height>61</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_9">
+                 <item>
+                  <widget class="QLineEdit" name="fileEdit">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="readOnly">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="fileButton">
+                   <property name="minimumSize">
+                    <size>
+                     <width>75</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>75</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>浏览</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QLabel" name="sizeLabel">
+                 <property name="minimumSize">
+                  <size>
+                   <width>121</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>121</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Size：0     B</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QPushButton" name="loadButton">
+              <property name="geometry">
+               <rect>
+                <x>285</x>
+                <y>130</y>
+                <width>75</width>
+                <height>30</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>12 Khmer UI</family>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>下载</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="viewButton">
+              <property name="geometry">
+               <rect>
+                <x>190</x>
+                <y>130</y>
+                <width>75</width>
+                <height>30</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>12 Khmer UI</family>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>查看Bin</string>
+              </property>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="usartBox">
+             <property name="title">
+              <string>串口配置</string>
+             </property>
+             <widget class="QWidget" name="verticalLayoutWidget_2">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>30</y>
+                <width>163</width>
+                <height>72</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <property name="spacing">
+                <number>10</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="uNameLabel">
+                   <property name="minimumSize">
+                    <size>
+                     <width>50</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>50</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>串口：</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="uNameBox">
+                   <property name="minimumSize">
+                    <size>
+                     <width>99</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>99</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="parityLabel">
+                   <property name="minimumSize">
+                    <size>
+                     <width>50</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>50</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>校验：</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="parityBox">
+                   <property name="minimumSize">
+                    <size>
+                     <width>99</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>99</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="verticalLayoutWidget_4">
+              <property name="geometry">
+               <rect>
+                <x>190</x>
+                <y>30</y>
+                <width>173</width>
+                <height>112</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_6">
+               <property name="spacing">
+                <number>10</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="baundRateLabel">
+                   <property name="minimumSize">
+                    <size>
+                     <width>50</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>波特率：</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="baundRateBox">
+                   <property name="minimumSize">
+                    <size>
+                     <width>99</width>
+                     <height>28</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>99</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>12 Khmer UI</family>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="dataBitLabel">
+                   <property name="minimumSize">
+                    <size>
+                     <width>50</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>数据位：</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="dataBitBox">
+                   <property name="minimumSize">
+                    <size>
+                     <width>99</width>
+                     <height>28</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>99</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="stopBitLabel">
+                   <property name="minimumSize">
+                    <size>
+                     <width>50</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>停止位：</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="stopBitBox">
+                   <property name="minimumSize">
+                    <size>
+                     <width>99</width>
+                     <height>28</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>99</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>12 Khmer UI</family>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QPushButton" name="openButton">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>120</y>
+                <width>101</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>12 Khmer UI</family>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>打开串口</string>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <property name="autoDefault">
+               <bool>false</bool>
+              </property>
+              <property name="default">
+               <bool>false</bool>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="refreshButton">
+              <property name="geometry">
+               <rect>
+                <x>120</x>
+                <y>120</y>
+                <width>51</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>刷新</string>
+              </property>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
