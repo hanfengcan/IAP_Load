@@ -122,6 +122,12 @@ void Widget::readData ()
         ui->loadTextEdit->insertPlainText (tr("IAP结束\n"));
         usart_temp.clear ();
     }
+    if(usart_temp == "again\n")
+    {
+        emit transmitData (--binLoadCnt);
+        ui->loadTextEdit->insertPlainText (tr("未成功写入，尝试重新写入\n"));
+        usart_temp.clear ();
+    }
 
 }
 
@@ -151,6 +157,7 @@ void Widget::transmitDataFun (int cnt)             //发送文件
         //index CRC 暂空
         binTransmit[2] = cnt % 256;
         binTransmit[3] = cnt / 256;
+
         binTransmit[4] = 0xff;
         binTransmit[5] = 0xff;
         binTransmit[6] = 0xff;
@@ -158,6 +165,15 @@ void Widget::transmitDataFun (int cnt)             //发送文件
 
         binFile->read (binByte, temp);
         binTransmit.insert(2, binByte, 1024);
+
+        crc.crc32 (&binTransmit, binTransmit.size () - 4);
+        unsigned long crc_val = crc.getCrc32 ();
+
+        binTransmit[1024 + 4] = crc_val;
+        binTransmit[1024 + 5] = crc_val >> 8;
+        binTransmit[1024 + 6] = crc_val >> 16;
+        binTransmit[1024 + 7] = crc_val >> 24;
+
         ui->loadProgressBar->setValue (100);
     }
     else
@@ -166,20 +182,31 @@ void Widget::transmitDataFun (int cnt)             //发送文件
         binTransmit[0] = 0x00;
         binTransmit[1] = 0x04;
         //index CRC 暂空
-        binTransmit[2] = cnt % 256;
-        binTransmit[3] = cnt / 256;
-        binTransmit[4] = 0xff;
+        binTransmit[2] = cnt % 256;     //L
+        binTransmit[3] = cnt / 256;     //H
+        binTransmit[4] = 0xff;          //L
         binTransmit[5] = 0xff;
         binTransmit[6] = 0xff;
-        binTransmit[7] = 0xff;
+        binTransmit[7] = 0xff;          //H
 
         binFile->read (binByte, 1024);
         binTransmit.insert(2, binByte, 1024);
+
+        crc.crc32 (&binTransmit, binTransmit.size () - 4);
+        unsigned long crc_val = crc.getCrc32 ();
+
+        binTransmit[1024 + 4] = crc_val;
+        binTransmit[1024 + 5] = crc_val >> 8;
+        binTransmit[1024 + 6] = crc_val >> 16;
+        binTransmit[1024 + 7] = crc_val >> 24;
+
+
         int i = (1 - float(temp) / float(binSize)) * 100;
         ui->loadProgressBar->setValue (i);
     }
     delete binByte;
     serial->write(binTransmit);
+    serial->write ("\n");       //用来触发STM32串口中断,置位0x8000
 }
 
 void Widget::on_openButton_clicked()

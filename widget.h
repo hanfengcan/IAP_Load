@@ -7,6 +7,8 @@
 #include <QtSerialPort/QSerialPort>
 #include <QFile>
 
+#include <crc_cal.h>
+
 QT_USE_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -72,6 +74,8 @@ private:
 
     QByteArray usart_temp;
     qint16 binLoadCnt;  //记录下载了多少K
+
+    CRC_Cal crc;
 };
 
 #endif // WIDGET_H

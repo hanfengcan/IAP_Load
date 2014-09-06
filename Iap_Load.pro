@@ -13,9 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp \
+    crc_cal.cpp
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    crc_cal.h
 
 FORMS    += widget.ui
 
