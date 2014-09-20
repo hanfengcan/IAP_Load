@@ -10,7 +10,7 @@ STM32 IAP升级工具
 
 > 传输格式为 
 
-> data_len_L  data_len_H  data(no more than 1K)   index_L index_H CRC
+> data_len_L  data_len_H  data(no more than 1K)   index_L index_H CRC end
 
 > 2B数据长度
 
@@ -19,6 +19,8 @@ STM32 IAP升级工具
 > 2B的数据索引（表示接收/发送的数据是第几个1K）
 
 > 4B CRC（预留）
+
+> end 帧尾，用来触发STM32串口中断
 
 
      -------------------------040902---广技师---校本部------------------------------
